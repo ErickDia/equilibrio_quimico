@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #282c34;
+    color: #fff;
+    padding: 50px;
+}
+
+.densidad_form{
+    display: flex;
+    gap: 20px;
+}
+.densidad_labels, .desnsidad_inputs{ 
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
