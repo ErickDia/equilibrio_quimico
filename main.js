@@ -17,7 +17,7 @@ inputPicAcido.addEventListener('keydown', (event) => {
 
 const onClickCalcularDensidad = () => {
     const densidad = (parseFloat(inputPicAcido.value).toFixed(4) - parseFloat(inputPicVacio.value).toFixed(4)) / (parseFloat(inputPicDestilada.value).toFixed(4) - parseFloat(inputPicVacio.value).toFixed(4))
-    resp_densidad.innerHTML = `Densidad: ${densidad.toFixed(4)} g/ml`
+    resp_densidad.innerHTML = `Densidad: ${densidad} g/ml`
     densidadAcido.value = densidad.toFixed(4)
 }
 
@@ -162,6 +162,7 @@ const onClickCalcularPureza = () => {
 
     // hallar x
     let x = ((rowA1.densidad - rowA2.densidad) * (temperaturaAcido.value - rowA2.temperatura) / (rowA1.temperatura - rowA2.temperatura)) + rowA2.densidad
+    // console.log(`(${rowA1.densidad} - ${rowA2.densidad}) * (${temperaturaAcido.value} - ${rowA2.temperatura}) / (${rowA1.temperatura} - ${rowA2.temperatura})) + ${rowA2.densidad}`);
     // hallar y
     let y = ((rowB1.densidad - rowB2.densidad) * (temperaturaAcido.value - rowB2.temperatura) / (rowB1.temperatura - rowB2.temperatura)) + rowB2.densidad
     console.log(`(${rowA1.percent} - ${rowB1.percent}) * (${densidadAcido.value} - ${y}) / (${x} - ${y}) + ${rowB1.percent}`);
@@ -212,7 +213,12 @@ const respProdAcidoAcetico = document.querySelector("#prod_acidoAcetico")
 const respProdAceSodio = document.querySelector("#prod_acetatoSodio")
 const respProdDioCarbono = document.querySelector("#prod_dioxidoCarbono")
 const respProdAgua = document.querySelector("#prod_aguaMolecular")
-
+//moles
+const respMolBicarSodio = document.querySelector("#mol_bicarbonatoSodio")
+const respMolAcidoAcetico = document.querySelector("#mol_acidoAcetico")
+const respMolAceSodio = document.querySelector("#mol_acetatoSodio")
+const respMolDioCarbono = document.querySelector("#mol_dioxidoCarbono")
+const respMolAgua = document.querySelector("#mol_aguaMolecular")
 
 
 const onClickProductos = () => {
@@ -276,8 +282,23 @@ const onClickProductos = () => {
     respProdDioCarbono.innerHTML = `Dioxido de carbono: ${grDioCarbono} g`
     respProdAgua.innerHTML = `Agua molecular: ${grAgua} g`
 
+    //CACULO DE MOLARIDAD
+
+    respMolBicarSodio.innerHTML = `Bicarbonato de sodio: ${grBicarSodio / gmolBicarbonatoSodio} M`
+    respMolAcidoAcetico.innerHTML = `Acido acetico: ${grAcAsetico / gmolAcidoAsetico} M`
+    respMolAceSodio.innerHTML = `Acetato de Sodio: ${grAceSodio / gmolAcetatoSodio} g`
+    respMolDioCarbono.innerHTML = `Dioxido de carbono: ${grDioCarbono / gmolDioxidoCarbono} g`
+    respMolAgua.innerHTML = `Agua molecular: ${grAgua / gmolAgua} g`
+
+    molaridadDioCarbono = grDioCarbono / gmolDioxidoCarbono
+    molaridadAcAcetico = grAcAsetico / gmolAcidoAsetico
+
+
+
 
     //  constante de equilibrio
+
+    const volumenAcAcetico = inputGrAcAsetico.value / 1000
     const respKC = document.querySelector("#kc")
-    respKC.innerHTML = `kc: ${(grAceSodio * grDioCarbono * grAgua) / (grAcAsetico * grBicarSodio)}`
+    respKC.innerHTML = `kc: ${(molaridadDioCarbono / volumenAcAcetico)}`
 }
