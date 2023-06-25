@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Trabajo academico</title>
+</head>
+<body>
+    <!-- Calculo densidad -->
+    <div>
+        <h1>Calculo de densidad de del Acido Clorhidrico</h1>
+        <div class="densidad_form">
+            <div class="densidad_labels">
+                <label for="pic_vacio">Picnometro vacio:</label>
+                <label for="pic_destilada">Picnometro lleno (agua destilada):</label>
+                <label for="pic_acido">Picnometro lleno (acido clorhidrico):</label>
+            </div>
+            <div class="desnsidad_inputs">
+                <span><input type="number" id="pic_vacio"> g</span>
+                <span><input type="number" id="pic_destilada"> g</span>
+                <span><input type="number" id="pic_acido"> g</span>
+            </div>
+        </div>
+        <button id="btn_cancular_densidad" onclick="onClickCalcularDensidad()">Calcular Densidad</button>
+        <p id="resp_densidad">Densidad: </p>
+
+    </div>
+
+    <!-- Calculo densidad -->
+    <div>
+        <h1>Calculo de pureza del Acido Acetico</h1>
+        <div class="densidad_form">
+            <div class="densidad_labels">
+                <label for="densidad_acido">Densidad (acido acetico):</label>
+                <label for="temperatura_acido">Temperatura (acido acetico):</label>
+            </div>
+            <div class="desnsidad_inputs">
+                <span><input type="number" id="densidad_acido"> g/ml</span>
+                <span><input type="number" id="temperatura_acido"> °C</span>
+            </div>
+        </div>
+        <button id="btn_cancular_densidad" onclick="onClickCalcularPureza()">Calcular Pureza</button>
+        <p id="resp_pureza">Pureza: </p>
+
+    </div>
+    <!-- Calcular productos -->
+    <div>
+        <h1>Calculo de productos de la Reacción</h1>
+        <div class="densidad_form">
+            <div class="densidad_labels">
+                <label for="pureza_bicarbonatoSodio">Pureza (Bicarbonato de sodio):</label>
+                <label for="gramos_bicarbonatoSodio">Gramos (Bicarbonato de sodio):</label>
+
+                <label for="pureza_acidoAsetico">Pureza (Acido acetico):</label>
+                <label for="densidad_acidoAsetico">Densidad (Acido acetico):</label>
+                <label for="gramos_acidoAsetico">Gramos (Acido acetico):</label>
+            </div>
+            <div class="desnsidad_inputs">
+                <span><input type="number" id="pureza_bicarbonatoSodio"> %</span>
+                <span><input type="number" id="gramos_bicarbonatoSodio"> g</span>
+
+                <span><input type="number" id="pureza_acidoAsetico"> %</span>
+                <span><input type="number" id="densidad_acidoAsetico"> g</span>
+                <span><input type="number" id="gramos_acidoAsetico"> g/ml</span>
+
+            </div>
+        </div>
+        <button id="btn_cancular_densidad" onclick="onClickProductos()">Calcular</button>
+        <h3>Masa Real (Reactivos)</h3>
+        <p id="masa_bicarbonatoSodio">Bicarbonato de sodio: </p>
+        <p id="masa_acidoAsetico">Acido acetico: </p>
+        
+        <h3>Relacion Molar</h3>
+        <p id="relacioMolar_bicarbonatoSodio">Bicarbonato de sodio: </p>
+        <p id="relacioMolar_acidoAsetico">Acido acetico: </p>
+
+        <h3>Cantidad de Produtos</h3>
+        <p id="prod_bicarbonatoSodio">Bicarbonato de sodio: </p>
+        <p id="prod_acidoAcetico">Acido acetico: </p>
+        <p id="prod_acetatoSodio">Acetato de Sodio: </p>
+        <p id="prod_dioxidoCarbono">Dioxido de carbono: </p>
+        <p id="prod_aguaMolecular">Agua molecular: </p>
+
+        <h3>Molaridad de Produtos</h3>
+        <p id="mol_bicarbonatoSodio">Bicarbonato de sodio: </p>
+        <p id="mol_acidoAcetico">Acido acetico: </p>
+        <p id="mol_acetatoSodio">Acetato de Sodio: </p>
+        <p id="mol_dioxidoCarbono">Dioxido de carbono: </p>
+        <p id="mol_aguaMolecular">Agua molecular: </p>
+
+        <h1>Constante de equilibrio</h1>
+
+        <p id="kc">Kc: </p>
+
+
+    </div>
+    
+    
+<!-- 
+    <label for="input_densidad">Densidad:</label>
+    <input type="number" id="input_densidad"> -->
+    <script src="./mainHCL.js"></script>
+</body>
+</html>
