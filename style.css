@@ -16,3 +16,28 @@ body {
     flex-direction: column;
     gap: 5px;
 }
+
+.btns-reactivos{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.btn{
+    border: none;
+    background-color: #ffffff;
+    width: 30%;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #282c34;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn:hover{
+    background-color: #474d5a;
+    color: #ffffff;
+}
+
+.btn-active{
+    background-color: #474d5a;
+    color: #ffffff;
+}

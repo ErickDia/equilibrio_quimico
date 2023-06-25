@@ -30,23 +30,23 @@ const respPureza = document.querySelector("#resp_pureza")
 
 
 const tablaPurezaAcido = [
-    [-1, 0, 10, 15, 20, 25, 30, 40],
-    [0, 0.9999, 0.9997, 0.9991, 0.9982, 0.9971, 0.9957, 0.9922],
-    [1, 1.0016, 1.0013, 1.0006, 0.9996, 0.9987, 0.9971, 0.9934],
-    [2, 1.0033, 1.0029, 1.0021, 1.0012, 1.0000, 0.9984, 0.9946],
-    [3, 1.0051, 1.0044, 1.0036, 1.0025, 1.0013, 0.9997, 0.9958],
-    [4, 1.0070, 1.0060, 1.0051, 1.0040, 1.0027, 1.0011, 0.9970],
-    [5, 1.0088, 1.0076, 1.0066, 1.0055, 1.0041, 1.0024, 0.9982],
-    [6, 1.0106, 1.0092, 1.0081, 1.0069, 1.0055, 1.0037, 0.9994],
-    [7, 1.0124, 1.0108, 1.0096, 1.0083, 1.0068, 1.0050, 1.0006],
-    [8, 1.0142, 1.0124, 1.0111, 1.0097, 1.0081, 1.0063, 1.0018],
-    [9, 1.0159, 1.0140, 1.0126, 1.0111, 1.0094, 1.0076, 1.0030],
-    [10, 1.0177, 1.0156, 1.0141, 1.0125, 1.0107, 1.0089, 1.0042],
-    [11, 1.0194, 1.0171, 1.0155, 1.0139, 1.0120, 1.0102, 1.0054],
-    [12, 1.0211, 1.0187, 1.0170, 1.0154, 1.0133, 1.0115, 1.0065],
-    [13, 1.0228, 1.0202, 1.0184, 1.0168, 1.0146, 1.0127, 1.0077],
-    [14, 1.0245, 1.0217, 1.0199, 1.0182, 1.0159, 1.0139, 1.0088],
-    [15, 1.0262, 1.0232, 1.0213, 1.0195, 1.0172, 1.0151, 1.0099],
+    [-1, 10, 20, 40],
+    [1, 1.0048, 1.0032, 0.9970],
+    [2, 1.0100, 1.0082, 1.0019],
+    [4, 1.0202, 1.0181, 1.0116],
+    [6, 1.0303, 1.0279, 1.0211],
+    [8, 1.0403, 1.0376, 1.0305],
+    [10, 1.0504, 1.0474, 1.0400],
+    [12, 1.0607, 1.0574, 1.0497],
+    [14, 1.0711, 1.0675, 1.0594],
+    [16, 1.0815, 1.0776, 1.0692],
+    [18, 1.0920, 1.0878, 1.0790],
+    [20, 1.1025, 1.0980, 1.0888],
+    [22, 1.1131, 1.1083, 1.0986],
+    [24, 1.1238, 1.1187, 1.1085],
+    [26, 1.1344, 1.1290, 1.1183],
+    [28, 1.1449, 1.1392, 1.1280],
+    [30, 1.1553, 1.1493, 1.1376],
 ]
 
 const getDataTablaPureza = (force = false) => {
@@ -184,14 +184,74 @@ const onClickCalcularPureza = () => {
 }
 
 
+
 //  camculo de productos
 
-const gmolBicarbonatoSodio = 84.0066;
-const gmolAcidoAsetico = 60.05196;
-const gmolAcetatoSodio = 82.03378;
-const gmolDioxidoCarbono = 44.0095;
-const gmolAgua = 18.01528;
-const RL = 'ACIDO'
+let gmolReactivo = 84.0066;
+let gmolAcido = 36.46094;
+let gmolProd1 = 82.03378;
+let gmolProd2 = 44.0095;
+let gmolAgua = 18.01528;
+
+
+let molesReactivo = 2;
+let molesAcido = 6;
+let molesProd1 = 2;
+let molesProd2 = 3;
+
+let RL = 'ACIDO'
+
+let reactivoMg = document.querySelector('#reactivoMg')
+let reactivoSn = document.querySelector('#reactivoSn')
+let reactivoAl = document.querySelector('#reactivoAl')
+
+
+const CambiarReactivo = (reactivo) => {
+    if (reactivo == 'Mg') {
+        gmolReactivo = 24.305;
+        gmolProd1 = 95.211;
+        gmolProd2 = 18.0153;
+
+        molesReactivo = 2;
+        molesAcido = 6;
+        molesProd1 = 2;
+        molesProd2 = 3;
+
+        reactivoMg.className = "btn btn-active"
+        reactivoSn.className = "btn"
+        reactivoAl.className = "btn"
+
+
+    } else if (reactivo == 'Sn') {
+        gmolReactivo = 65.38;
+        gmolProd1 = 136.286;
+        gmolProd2 = 2.01588;
+
+        molesReactivo = 1;
+        molesAcido = 2;
+        molesProd1 = 2;
+        molesProd2 = 2;
+
+        reactivoMg.className = "btn"
+        reactivoSn.className = "btn btn-active"
+        reactivoAl.className = "btn"
+
+    } else if (reactivo == 'Al') {
+        gmolReactivo = 26.98153;
+        gmolProd1 = 133.34053;
+        gmolProd2 = 2.01588;
+
+        molesReactivo = 2;
+        molesAcido = 6;
+        molesProd1 = 2;
+        molesProd2 = 3;
+
+        reactivoMg.className = "btn"
+        reactivoSn.className = "btn"
+        reactivoAl.className = "btn btn-active"
+    }
+}
+
 
 const inputPurBicarSodio = document.querySelector("#pureza_bicarbonatoSodio")
 const inputGrBicarSodio = document.querySelector("#gramos_bicarbonatoSodio")
@@ -239,13 +299,13 @@ const onClickProductos = () => {
     console.log({ MasaBicarSodio, MasaAcAcetico });
 
     //  moles de reactivos
-    const molesBicarSodio = MasaBicarSodio / gmolBicarbonatoSodio;
-    const molesAcAcetico = MasaAcAcetico / gmolAcidoAsetico;
+    const molesBicarSodio = MasaBicarSodio / gmolReactivo;
+    const molesAcAcetico = MasaAcAcetico / gmolAcido;
 
     // relacion molar
-
-    const relMolarBicarSodio = molesBicarSodio / 1
-    const relMolarAcAcetico = molesAcAcetico / 1
+    console.log(molesAcAcetico, MasaAcAcetico, gmolAcido);
+    const relMolarBicarSodio = molesBicarSodio / molesReactivo
+    const relMolarAcAcetico = molesAcAcetico / molesAcido
 
     respRelMolarBicarSodio.innerHTML = `Bicarbonato de sodio: ${relMolarBicarSodio} ${relMolarBicarSodio - relMolarAcAcetico < 0 ? 'RL' : 'RE'}`
     respRelMolarAcAcetico.innerHTML = `Acido acetico: ${relMolarAcAcetico} ${relMolarAcAcetico - relMolarBicarSodio < 0 ? 'RL' : 'RE'}`
@@ -261,44 +321,44 @@ const onClickProductos = () => {
 
     if (RL == 'ACIDO') {
         grAcAsetico = MasaAcAcetico
-        grBicarSodio = molesRL * gmolBicarbonatoSodio
+        grBicarSodio = molesRL * (molesReactivo / molesAcido) * gmolReactivo
 
         respProdAcidoAcetico.innerHTML = `Acido acetico: ${grAcAsetico} g`;
         respProdBicarSodio.innerHTML = `Bicarbonato de sodio: ${grBicarSodio} g`;
 
     } else {
-        grAcAsetico = molesRL * gmolAcidoAsetico
+        grAcAsetico = molesRL * (molesAcido / molesReactivo) * gmolAcido
         grBicarSodio = MasaBicarSodio
 
         respProdBicarSodio.innerHTML = `Bicarbonato de sodio: ${MasaBicarSodio} g`;
-        respProdAcidoAcetico.innerHTML = `Acido acetico: ${molesRL * gmolAcidoAsetico} g`;
+        respProdAcidoAcetico.innerHTML = `Acido acetico: ${molesRL * gmolAcido} g`;
     }
 
-    const grAceSodio = molesRL * gmolAcetatoSodio
-    const grDioCarbono = molesRL * gmolDioxidoCarbono
-    const grAgua = molesRL * gmolAgua
+    const grAceSodio = molesRL * (molesProd1 / molesAcido) * gmolProd1
+    const grDioCarbono = molesRL * (molesProd2 / molesAcido) * gmolProd2
+    // const grAgua = molesRL * (molesReactivo / molesAcido) * gmolAgua
 
     respProdAceSodio.innerHTML = `Acetato de Sodio: ${grAceSodio} g`
     respProdDioCarbono.innerHTML = `Dioxido de carbono: ${grDioCarbono} g`
-    respProdAgua.innerHTML = `Agua molecular: ${grAgua} g`
+    // respProdAgua.innerHTML = `Agua molecular: ${grAgua} g`
 
     //CACULO DE MOLARIDAD
 
-    respMolBicarSodio.innerHTML = `Bicarbonato de sodio: ${grBicarSodio / gmolBicarbonatoSodio} M`
-    respMolAcidoAcetico.innerHTML = `Acido acetico: ${grAcAsetico / gmolAcidoAsetico} M`
-    respMolAceSodio.innerHTML = `Acetato de Sodio: ${grAceSodio / gmolAcetatoSodio} g`
-    respMolDioCarbono.innerHTML = `Dioxido de carbono: ${grDioCarbono / gmolDioxidoCarbono} g`
-    respMolAgua.innerHTML = `Agua molecular: ${grAgua / gmolAgua} g`
+    // respMolBicarSodio.innerHTML = `Bicarbonato de sodio: ${grBicarSodio / gmolReactivo} M`
+    // respMolAcidoAcetico.innerHTML = `Acido acetico: ${grAcAsetico / gmolAcido} M`
+    // respMolAceSodio.innerHTML = `Acetato de Sodio: ${grAceSodio / gmolProd1} g`
+    // respMolDioCarbono.innerHTML = `Dioxido de carbono: ${grDioCarbono / gmolProd2} g`
+    // respMolAgua.innerHTML = `Agua molecular: ${grAgua / gmolAgua} g`
 
-    molaridadDioCarbono = grDioCarbono / gmolDioxidoCarbono
-    molaridadAcAcetico = grAcAsetico / gmolAcidoAsetico
+    // molaridadDioCarbono = grDioCarbono / gmolProd2
+    // molaridadAcAcetico = grAcAsetico / gmolAcido
 
 
 
 
     //  constante de equilibrio
 
-    const volumenAcAcetico = inputGrAcAsetico.value / 1000
-    const respKC = document.querySelector("#kc")
-    respKC.innerHTML = `kc: ${(molaridadDioCarbono / volumenAcAcetico)}`
+    // const volumenAcAcetico = inputGrAcAsetico.value / 1000
+    // const respKC = document.querySelector("#kc")
+    // respKC.innerHTML = `kc: ${(molaridadDioCarbono / volumenAcAcetico)}`
 }

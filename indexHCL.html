@@ -7,6 +7,12 @@
     <title>Trabajo academico</title>
 </head>
 <body>
+    <div class="btns-reactivos">
+        <button id="reactivoMg" class="btn btn-active" onclick="CambiarReactivo('Mg')">Mg</button>
+        <button id="reactivoSn" class="btn" onclick="CambiarReactivo('Sn')">Sn</button>
+        <button id="reactivoAl" class="btn" onclick="CambiarReactivo('Al')">Al</button>
+
+    </div>
     <!-- Calculo densidad -->
     <div>
         <h1>Calculo de densidad de del Acido Clorhidrico</h1>
@@ -29,11 +35,11 @@
 
     <!-- Calculo densidad -->
     <div>
-        <h1>Calculo de pureza del Acido Acetico</h1>
+        <h1>Calculo de pureza del Acido Clorhidrico</h1>
         <div class="densidad_form">
             <div class="densidad_labels">
-                <label for="densidad_acido">Densidad (acido acetico):</label>
-                <label for="temperatura_acido">Temperatura (acido acetico):</label>
+                <label for="densidad_acido">Densidad (acido Clorhidrico):</label>
+                <label for="temperatura_acido">Temperatura (acido Clorhidrico):</label>
             </div>
             <div class="desnsidad_inputs">
                 <span><input type="number" id="densidad_acido"> g/ml</span>
@@ -49,12 +55,12 @@
         <h1>Calculo de productos de la Reacción</h1>
         <div class="densidad_form">
             <div class="densidad_labels">
-                <label for="pureza_bicarbonatoSodio">Pureza (Bicarbonato de sodio):</label>
-                <label for="gramos_bicarbonatoSodio">Gramos (Bicarbonato de sodio):</label>
+                <label for="pureza_bicarbonatoSodio">Pureza (Reactivo):</label>
+                <label for="gramos_bicarbonatoSodio">Gramos (Reactivo):</label>
 
-                <label for="pureza_acidoAsetico">Pureza (Acido acetico):</label>
-                <label for="densidad_acidoAsetico">Densidad (Acido acetico):</label>
-                <label for="gramos_acidoAsetico">Gramos (Acido acetico):</label>
+                <label for="pureza_acidoAsetico">Pureza (Acido Clorhidrico):</label>
+                <label for="densidad_acidoAsetico">Densidad (Acido Clorhidrico):</label>
+                <label for="gramos_acidoAsetico">Gramos (Acido Clorhidrico):</label>
             </div>
             <div class="desnsidad_inputs">
                 <span><input type="number" id="pureza_bicarbonatoSodio"> %</span>
@@ -68,30 +74,30 @@
         </div>
         <button id="btn_cancular_densidad" onclick="onClickProductos()">Calcular</button>
         <h3>Masa Real (Reactivos)</h3>
-        <p id="masa_bicarbonatoSodio">Bicarbonato de sodio: </p>
-        <p id="masa_acidoAsetico">Acido acetico: </p>
+        <p id="masa_bicarbonatoSodio">Reactivo: </p>
+        <p id="masa_acidoAsetico">Acido Clorhidrico: </p>
         
         <h3>Relacion Molar</h3>
-        <p id="relacioMolar_bicarbonatoSodio">Bicarbonato de sodio: </p>
-        <p id="relacioMolar_acidoAsetico">Acido acetico: </p>
+        <p id="relacioMolar_bicarbonatoSodio">Reactivo: </p>
+        <p id="relacioMolar_acidoAsetico">Acido Clorhidrico: </p>
 
         <h3>Cantidad de Produtos</h3>
-        <p id="prod_bicarbonatoSodio">Bicarbonato de sodio: </p>
-        <p id="prod_acidoAcetico">Acido acetico: </p>
-        <p id="prod_acetatoSodio">Acetato de Sodio: </p>
-        <p id="prod_dioxidoCarbono">Dioxido de carbono: </p>
-        <p id="prod_aguaMolecular">Agua molecular: </p>
+        <p id="prod_bicarbonatoSodio">Reactivo: </p>
+        <p id="prod_acidoAcetico">Acido Clorhidrico: </p>
+        <p id="prod_acetatoSodio">Producto 1: </p>
+        <p id="prod_dioxidoCarbono">Producto 2: </p>
+        <!-- <p id="prod_aguaMolecular">Agua molecular: </p> -->
 
-        <h3>Molaridad de Produtos</h3>
+        <!-- <h3>Molaridad de Produtos</h3>
         <p id="mol_bicarbonatoSodio">Bicarbonato de sodio: </p>
         <p id="mol_acidoAcetico">Acido acetico: </p>
         <p id="mol_acetatoSodio">Acetato de Sodio: </p>
         <p id="mol_dioxidoCarbono">Dioxido de carbono: </p>
-        <p id="mol_aguaMolecular">Agua molecular: </p>
+        <p id="mol_aguaMolecular">Agua molecular: </p> -->
 
-        <h1>Constante de equilibrio</h1>
+        <!-- <h1>Constante de equilibrio</h1>
 
-        <p id="kc">Kc: </p>
+        <p id="kc">Kc: </p> -->
 
 
     </div>
