@@ -336,6 +336,7 @@ const onClickProductos = () => {
 
     const grAceSodio = molesRL * (molesProd1 / molesAcido) * gmolProd1
     const grDioCarbono = molesRL * (molesProd2 / molesAcido) * gmolProd2
+    console.log(molesProd2);
     // const grAgua = molesRL * (molesReactivo / molesAcido) * gmolAgua
 
     respProdAceSodio.innerHTML = `Acetato de Sodio: ${grAceSodio} g`
